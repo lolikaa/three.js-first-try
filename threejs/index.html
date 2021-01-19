@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <title>My three.js project</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <button id="moveBtn">Kliknij mnie</button>
-    <button id="change1" class="isVisible">1</button>
-    <button id="change2" class="isVisible">2</button>
-    <button id="change3" class="isVisible">3</button>
-    <button id="btn_lamp1">light 1</button>
-    <button id="btn_lamp2">light 2</button>
+    <div class="button-row">
+    <button id="moveBtn">WŁĄCZ ROTACJE</button>
+    <button id="change1">Change color</button>
+    <button id="change2" class="material">Phong Material</button>
+    <button id="change3" class="material">Standard Material</button>
+    <button id="change4" class="material">Lambert Material (default)</button>
+    <button id="btn_lamp1" class="lamp">Hemisphere Light</button>
+    <button id="btn_lamp2" class="lamp">Point Light</button>
+    </div>
 
-    <div id="container"></div>
+<div id="container"></div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.js" integrity="sha512-tmdOKTY7I6MOUcCL/9fa4s+BnBCgEuifJImOX46m36+rxVMcgHEPGLVoCXHR6ZvjcKGoVixEiBKE4LcYLnv0Cw==" crossorigin="anonymous"></script>
