@@ -24,7 +24,7 @@ body { margin: 0; }
   }
 
   .lamp {
-      background-color: springgreen;
+      background-color: #00994c;
   }
 
   .material {
@@ -33,7 +33,7 @@ body { margin: 0; }
 
   #moveBtn {
       margin-left: 10px;
-      background-color: purple;
+      background-color: #993299;
       min-width: 25px;
   }
 

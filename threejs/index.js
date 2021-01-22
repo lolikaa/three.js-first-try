@@ -32,8 +32,6 @@ const scene_atributes = {
       pointLight.position.x = 10;
       pointLight.position.y = 8;
       pointLight.position.z = 30;
-      // // add to the scene
-      // scene.add(pointLight);
 
      // create a Hemisphere light
        const light1 = new THREE.HemisphereLight( 0xffffbb, 0x080820, 0.5 );
@@ -58,8 +56,6 @@ const scene_atributes = {
           });
   
   const geometry = new THREE.TorusGeometry(radius,tube,radialSegments,tubularSegments,arc);
-  
- 
   const myObject = new THREE.Mesh( geometry, figureMaterial );
   scene.add( myObject );
   
@@ -67,10 +63,6 @@ const scene_atributes = {
 
 
   const controls = new THREE.OrbitControls(camera, renderer.domElement, myObject);
- // controls.update();
-
- 
-  
 
 
 // variables to next functionality
@@ -82,23 +74,24 @@ const scene_atributes = {
   let btn3 = document.getElementById("change3");
   let btn4 = document.getElementById("change4");
 
-    // when we click main button
+    // rotate function
   button_start_stop.addEventListener('click', () =>{
     // when btn is enable
     if(status=='start'){
         controls.autoRotate = true;
-        controls.autoRotateSpeed=5;
+        controls.autoRotateSpeed=0.5;
 
         // btn controll
         show(data);
         button_start_stop.innerHTML = 'STOP';
+        button_start_stop.style.background='#CC0066';
         return status = 'stop';
     }
-
     if(status =='stop'){
         controls.autoRotate=false;
         hide(data);
         button_start_stop.innerHTML = 'START';
+        button_start_stop.style.background='#DB4C93';
         return status = 'start';
     }
   });
@@ -112,8 +105,9 @@ const scene_atributes = {
         for(i=0; i<data.length;i++) data[i].style.visibility = 'hidden';
     }
 
+    // change color function
     btn1.addEventListener('click', () => {
-        // switch color and rotate
+        // switch color
         console.log('Kliknieto btn 1');
         let random = Math.floor(Math.random()*16777215).toString(16);
         let randomColor='0x'+random;
@@ -138,10 +132,9 @@ const scene_atributes = {
           myObject.material.nedsUpdate = true;
     });
 
-
+    // back to standard mesh
     btn3.addEventListener('click', () => {
         console.log('Kliknieto btn 3');
-        // TODO
         const nextMaterial = new THREE.MeshStandardMaterial({
           color: 0x81ce21,
           emissive: 0xdd2929,
@@ -170,10 +163,12 @@ const scene_atributes = {
    //   console.log(`wartosc lamp 1 = ${lamp1}`);
       if(lamp1===false) {
         scene.add(light1);
+        btn_lamp1.style.background='#00E572';
         return lamp1 = true;
       }
       if(lamp1 === true) {
         scene.remove(light1);
+        btn_lamp1.style.background='#00994c';
         return lamp1 = false;
       }
     })
@@ -181,10 +176,12 @@ const scene_atributes = {
     btn_lamp2.addEventListener('click', () => {
       if(lamp2===false) {
         scene.add(pointLight);
+        btn_lamp2.style.background='#00E572';
         return lamp2 = true;
       }
       if(lamp2 === true) {
         scene.remove(pointLight);
+        btn_lamp2.style.background='#00994c';
         return lamp2 = false;
       }
     })
